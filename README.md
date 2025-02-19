@@ -1,5 +1,7 @@
 # Social Bunny 🐰
 
+![alt text](/ConejitoSocialFavicon.png)
+
 ## Table of Contents 📚
 1. [Project Description](#project-description-) 📝
 2. [Project Requirements](#project-requirements-) 📋
