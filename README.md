@@ -108,7 +108,3 @@ The API documentation is available on.
 ## Links to Repositories 🔗
 - **Backend:** [Backend Repository](https://github.com/JuanJTorresB/Social-Bunny-Project-Back.git)
 - **Frontend:** [Frontend Repository](https://github.com/JuanJTorresB/Social-Bunny-Project-Front.git)
-
-**Latest commit hashes:**
-- Backend: ``
-- Frontend: ``
