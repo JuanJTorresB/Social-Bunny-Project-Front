@@ -100,7 +100,7 @@ CREATE DATABASE "SocialBunny";
 
 ## API Documentation 📖
 The API documentation is available on.
-[Swagger PDF](DocumentationAssets/Social%20Bunny%20Api%20Documentation.pdf)
+[Swagger PDF](https://github.com/JuanJTorresB/Social-Bunny-Project-Back/blob/main/DocumentationAssets/Social%20Bunny%20Api%20Documentation.pdf)
 
 ## Demonstrative Video 🎥
 [Demonstrative Video](https://drive.google.com/drive/folders/1QG8rMr4tZQtxQQ-728NkrRv84p94TPoh?usp=sharing)
