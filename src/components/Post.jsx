@@ -19,7 +19,7 @@ const Post = ({ post, userActual }) => {
 
     const getUserById = async () => {
         if (typeof post.user === 'number') {
-            const response = await axios.get(`http://localhost:8080/api/user/id/${post.user}`, {
+            const response = await axios.get(`http://localhost:1234/api/user/id/${post.user}`, {
                 withCredentials: true
             });
             setUserPost(response.data);
@@ -40,7 +40,7 @@ const Post = ({ post, userActual }) => {
     }, [post.id, userActual?.id, reactionActualizaer]);
 
     const cheackReaction = async () => {
-        const response = await axios.get(`http://localhost:8080/api/reaction/${post.id}/${userActual?.id}`, {
+        const response = await axios.get(`http://localhost:1234/api/reaction/${post.id}/${userActual?.id}`, {
             withCredentials: true
         });
         return response.data;
@@ -48,7 +48,7 @@ const Post = ({ post, userActual }) => {
 
     const handleReaction = async () => {
         try {
-            await axios.post(`http://localhost:8080/api/reaction/${post.id}/${userActual?.id}`, {
+            await axios.post(`http://localhost:1234/api/reaction/${post.id}/${userActual?.id}`, {
                 withCredentials: true
             });
             console.log("================================================");
@@ -63,7 +63,7 @@ const Post = ({ post, userActual }) => {
     }
 
     const checkMention = async (username) => {
-        const response = await axios.get(`http://localhost:8080/api/user/usernameExists/${username}`, {
+        const response = await axios.get(`http://localhost:1234/api/user/usernameExists/${username}`, {
             withCredentials: true
         });
         console.log("================================================");
@@ -74,7 +74,7 @@ const Post = ({ post, userActual }) => {
     }
 
     const handleDelete = async () => {
-        const response = await axios.delete(`http://localhost:8080/api/post/delete/${post.id}`, {
+        const response = await axios.delete(`http://localhost:1234/api/post/delete/${post.id}`, {
             withCredentials: true
         });
         navigate("/");
@@ -83,7 +83,7 @@ const Post = ({ post, userActual }) => {
 
     useEffect(() => {
         const getPost = async () => {
-            const response = await axios.get(`http://localhost:8080/api/post/${post.id}`, {
+            const response = await axios.get(`http://localhost:1234/api/post/${post.id}`, {
                 withCredentials: true
             });
             setCountReactions(response.data.countReactions);
@@ -105,21 +105,6 @@ const Post = ({ post, userActual }) => {
     
         checkAllMentions();
     }, [post.description]);    
-
-    const editPost = async (data) => {
-        try {
-            const response = await axios.put(`http://localhost:8080/api/post/update/${post.id}`, data, {
-                withCredentials: true
-            });
-            console.log("================================================");
-            console.log("postActualizaer");
-            console.log(postActualizaer);
-            console.log("================================================");
-            setPostActualizaer(!postActualizaer);
-        } catch (error) {
-            console.error("Error al editar el post:", error);
-        }
-    }   
     
 
     return (

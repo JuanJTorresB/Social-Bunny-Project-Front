@@ -19,7 +19,7 @@ const PostForm = ({ UserActual }) => {
         data.user = user;
         data.creationDate = fechaActual;
         console.log(data);
-        const response = await axios.post("http://localhost:8080/api/post/upload", data, {
+        const response = await axios.post("http://localhost:1234/api/post/upload", data, {
             withCredentials: true
         });
         console.log(response.data);

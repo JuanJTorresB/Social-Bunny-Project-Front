@@ -19,7 +19,7 @@ const NotificationSocket = () => {
         console.log(`[DEBUG] Buscando usuario: ${username}`);
 
         try {
-            const response = await axios.get(`http://localhost:8080/api/user/username/${username}`, {
+            const response = await axios.get(`http://localhost:1234/api/user/username/${username}`, {
                 withCredentials: true
             });
 
@@ -38,7 +38,7 @@ const NotificationSocket = () => {
     useEffect(() => {
         console.log("[DEBUG] useEffect WebSocket ejecutado");
 
-        const socket = new SockJS('http://localhost:8080/ws');
+        const socket = new SockJS('http://localhost:1234/ws');
         const stompClient = Stomp.over(socket);
 
         socket.onopen = () => {
@@ -148,7 +148,7 @@ const NotificationSocket = () => {
                 return usernameCache[userId]; // Retorna el nombre de usuario desde el caché
             }
 
-            const response = await axios.get(`http://localhost:8080/api/user/id/${userId}`);
+            const response = await axios.get(`http://localhost:1234/api/user/id/${userId}`);
             usernameCache[userId] = response.data.username; // Almacena en caché
             return response.data.username;
         } else {

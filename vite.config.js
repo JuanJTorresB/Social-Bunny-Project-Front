@@ -9,7 +9,7 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
-    outDir: '../Social-Bunny-Project/src/main/resources/static',
+    outDir: '../Social-Bunny-Project-Back-/src/main/resources/static',
     emptyOutDir: true
   }
 })

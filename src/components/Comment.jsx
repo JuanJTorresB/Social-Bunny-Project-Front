@@ -12,7 +12,7 @@ const Comment = ({ comment, userActual }) => {
     const getUserById = async () => {
         if (typeof comment.user == 'number') {
             try {
-                const response = await axios.get(`http://localhost:8080/api/user/id/${comment.user}`, {
+                const response = await axios.get(`http://localhost:1234/api/user/id/${comment.user}`, {
                     withCredentials: true
                 });
                 if (response.data) {
@@ -30,7 +30,7 @@ const Comment = ({ comment, userActual }) => {
 
     const handleDelete = async (commentId) => {
         try {
-            await axios.delete(`http://localhost:8080/api/comment/delete/${commentId}`, {
+            await axios.delete(`http://localhost:1234/api/comment/delete/${commentId}`, {
                 withCredentials: true
             });
             window.location.reload();

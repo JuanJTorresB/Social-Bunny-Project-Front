@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     const checkAuth = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/auth/validate", {
+            const response = await axios.get("http://localhost:1234/auth/validate", {
                 withCredentials: true
             });
             if (response.status === 200) {
@@ -50,7 +50,7 @@ function App() {
 
   const getUser = async () => {
     const username = localStorage.getItem('username');
-    const response = await axios.get("http://localhost:8080/api/user/username/" + username, {
+    const response = await axios.get("http://localhost:1234/api/user/username/" + username, {
         withCredentials: true
     });
     return response.data;

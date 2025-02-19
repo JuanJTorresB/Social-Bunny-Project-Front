@@ -19,7 +19,7 @@ const PostComment = ({ userActual, postId }) => {
         };
         
         try {
-            const response = await axios.post(`http://localhost:8080/api/comment/${postId}/save`, commentData, {
+            const response = await axios.post(`http://localhost:1234/api/comment/${postId}/save`, commentData, {
                 withCredentials: true
             });
             console.log(response.data);

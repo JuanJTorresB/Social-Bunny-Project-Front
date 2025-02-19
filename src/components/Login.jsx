@@ -6,7 +6,7 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { darkMode} = useTheme();
     const onSubmit = async (data) => {
-        const response = await axios.post("http://localhost:8080/auth/login", data)
+        const response = await axios.post("http://localhost:1234/auth/login", data)
         console.log(response);
         if (response.status === 200) {
             localStorage.setItem('username', data.username);

@@ -61,7 +61,7 @@ const Profile = ({ User }) => {
     useEffect(() => {
         const fetchFollowers = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/follower/getFollowers/${userUrl.id}`, {
+                const response = await axios.get(`http://localhost:1234/api/follower/getFollowers/${userUrl.id}`, {
                     withCredentials: true
                 });
                 console.log("Seguidores obtenidos:", response.data);
@@ -79,7 +79,7 @@ const Profile = ({ User }) => {
     useEffect(() => {
         const fetchFollowing = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/follower/getFollowing/${userUrl.id}`, {
+                const response = await axios.get(`http://localhost:1234/api/follower/getFollowing/${userUrl.id}`, {
                     withCredentials: true
                 });
                 console.log("Seguidos obtenidos:", response.data);
@@ -97,7 +97,7 @@ const Profile = ({ User }) => {
 
     const fetchUsers = async (searchTerm) => {
         if (searchTerm !== "") {
-            const response = await axios.get("http://localhost:8080/api/user/username/like/" + searchTerm, {
+            const response = await axios.get("http://localhost:1234/api/user/username/like/" + searchTerm, {
                 withCredentials: true
             });
             console.log(response.data);
@@ -145,7 +145,7 @@ const Profile = ({ User }) => {
     useEffect(() => {
         const fetchPostUser = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/post/user/${userUrl.id}`, {
+                const response = await axios.get(`http://localhost:1234/api/post/user/${userUrl.id}`, {
                     withCredentials: true
                 });
                 console.log(response.data);
@@ -177,7 +177,7 @@ const Profile = ({ User }) => {
     };
 
     const getUserByUsername = async (username) => {
-        const response = await axios.get("http://localhost:8080/api/user/username/" + username, {
+        const response = await axios.get("http://localhost:1234/api/user/username/" + username, {
             withCredentials: true
         });
         return response.data;
@@ -204,7 +204,7 @@ const Profile = ({ User }) => {
     }, [modalIsOpen, modalType, followers, following]);
 
     const logOut = () => {
-        axios.post("http://localhost:8080/auth/logout", {
+        axios.post("http://localhost:1234/auth/logout", {
             withCredentials: true
         }).then(() => {
             window.location.href = "/";
@@ -212,7 +212,7 @@ const Profile = ({ User }) => {
     }
 
     const onSubmit = async (data) => {
-        const response = await axios.put("http://localhost:8080/api/user/id/" + userUrl.id, data, {
+        const response = await axios.put("http://localhost:1234/api/user/id/" + userUrl.id, data, {
             withCredentials: true
         });
         console.log(response.data);

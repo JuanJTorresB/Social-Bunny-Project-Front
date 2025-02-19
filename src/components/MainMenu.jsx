@@ -31,7 +31,7 @@ const MainMenu = () => {
         console.log(user);
         const userId = user.id;
         const followerId = await getUserIdByUsername(followerUsername);
-        const response = await axios.get("http://localhost:8080/api/follower/checkFollower/" + followerId + "/" + userId, {
+        const response = await axios.get("http://localhost:1234/api/follower/checkFollower/" + followerId + "/" + userId, {
             withCredentials: true
         });
         console.log("================================================");
@@ -44,7 +44,7 @@ const MainMenu = () => {
     }
 
     const getUserIdByUsername = async (username) => {
-        const response = await axios.get("http://localhost:8080/api/user/username/" + username, {
+        const response = await axios.get("http://localhost:1234/api/user/username/" + username, {
             withCredentials: true
         });
         return response.data.id;
@@ -52,7 +52,7 @@ const MainMenu = () => {
 
     const getUser = async () => {
         const username = localStorage.getItem('username');
-        const response = await axios.get("http://localhost:8080/api/user/username/" + username, {
+        const response = await axios.get("http://localhost:1234/api/user/username/" + username, {
             withCredentials: true
         });
         console.log("================================================");
@@ -64,7 +64,7 @@ const MainMenu = () => {
     };
 
     const fetchUsers = async (searchTerm) => {
-        const response = await axios.get("http://localhost:8080/api/user/username/like/" + searchTerm, {
+        const response = await axios.get("http://localhost:1234/api/user/username/like/" + searchTerm, {
             withCredentials: true
         });
         console.log(response.data);
@@ -106,7 +106,7 @@ const MainMenu = () => {
             console.log(User);
             const userId = User.id;
             console.log("User ID:", userId);
-            const response = await axios.get("http://localhost:8080/api/post/feed/" + userId, {
+            const response = await axios.get("http://localhost:1234/api/post/feed/" + userId, {
                 withCredentials: true
             });
             setResponsePosts(response.data);
@@ -119,7 +119,7 @@ const MainMenu = () => {
         try {
             const User = await getUser();
             const userId = User.id;
-            const response = await axios.get("http://localhost:8080/api/post/feed/" + userId + "/mostRelevant", {
+            const response = await axios.get("http://localhost:1234/api/post/feed/" + userId + "/mostRelevant", {
                 withCredentials: true
             });
             setResponsePosts(response.data);
@@ -132,7 +132,7 @@ const MainMenu = () => {
         try {
             const User = await getUser();
             const userId = User.id;
-            const response = await axios.get("http://localhost:8080/api/notification/unseen/" + userId, {
+            const response = await axios.get("http://localhost:1234/api/notification/unseen/" + userId, {
                 withCredentials: true
             });
             setNotifications(response.data);
@@ -245,7 +245,7 @@ const MainMenu = () => {
                 return usernameCache[userId];
             }
 
-            const response = await axios.get(`http://localhost:8080/api/user/id/${userId}`);
+            const response = await axios.get(`http://localhost:1234/api/user/id/${userId}`);
             usernameCache[userId] = response.data.username; // Almacena en caché
             return response.data.username;
         } else {
@@ -270,7 +270,7 @@ const MainMenu = () => {
 
     const markNotificationAsSeen = async (notificationId) => {
         try {
-            await axios.put(`http://localhost:8080/api/notification/mark/seen/${notificationId}`, {
+            await axios.put(`http://localhost:1234/api/notification/mark/seen/${notificationId}`, {
                 withCredentials: true
             });
         } catch (error) {

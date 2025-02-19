@@ -8,7 +8,7 @@ const Register = () => {
     const { darkMode, toggleDarkMode } = useTheme();
     
     const onSubmit = async (data) => {
-        const response = await axios.post("http://localhost:8080/auth/register", data)
+        const response = await axios.post("http://localhost:1234/auth/register", data)
         console.log(response);
         if (response.status === 200) {
             localStorage.setItem('username', data.username);

@@ -17,7 +17,7 @@ const ProfileCard = ({User}) => {
             console.log(user);
             const followerId = User.id;
             const userId = user.id;
-        const response = await axios.get("http://localhost:8080/api/follower/checkFollower/" + followerId + "/" + userId, {
+        const response = await axios.get("http://localhost:1234/api/follower/checkFollower/" + followerId + "/" + userId, {
             withCredentials: true
         });
         console.log("================================================");
@@ -35,7 +35,7 @@ const ProfileCard = ({User}) => {
 
 
     const getUserIdByUsername = async (username) => {
-        const response = await axios.get("http://localhost:8080/api/user/username/" + username, {
+        const response = await axios.get("http://localhost:1234/api/user/username/" + username, {
             withCredentials: true
         });
         return response.data.id;
@@ -44,7 +44,7 @@ const ProfileCard = ({User}) => {
     const getUser = async () => {
         if (userActual == null) {
         const username = localStorage.getItem('username');
-        const response = await axios.get("http://localhost:8080/api/user/username/" + username, {
+        const response = await axios.get("http://localhost:1234/api/user/username/" + username, {
             withCredentials: true
             });
             setUserActual(response.data);
@@ -53,7 +53,7 @@ const ProfileCard = ({User}) => {
     };
 
     const followUser = async () => {
-        const response = await axios.post("http://localhost:8080/api/follower/save/" + userActual.id + "/" + User.id, {
+        const response = await axios.post("http://localhost:1234/api/follower/save/" + userActual.id + "/" + User.id, {
             withCredentials: true
         });
         setIsFollowing(true);
@@ -61,7 +61,7 @@ const ProfileCard = ({User}) => {
     }
 
     const unfollowUser = async () => {
-        const response = await axios.delete("http://localhost:8080/api/follower/unfollow/" + userActual.id + "/" + User.id, {
+        const response = await axios.delete("http://localhost:1234/api/follower/unfollow/" + userActual.id + "/" + User.id, {
             withCredentials: true
         });
         setIsFollowing(false);
